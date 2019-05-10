@@ -223,6 +223,8 @@ def sanitize_name(name,what="branch", mapping={}):
     if name[0] == '.': return '_'+name[1:]
     return name
 
+  if mapping.has_key(name):
+    return mapping[name]
   n=mapping.get(name,name)
   p=re.compile('([[ ~^:?\\\\*]|\.\.)')
   n=p.sub('_', n)
